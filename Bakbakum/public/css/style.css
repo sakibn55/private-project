@@ -537,3 +537,40 @@ hr {
   margin-bottom: 20px;
   border: 0;
   border-top: 1px solid rgba(82, 186, 249, 0.36) !important; }
+
+.post-ad-area .post-add-main {
+  max-width: 750px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 60px 60px;
+  background: #f6f6f6;
+  margin: 60px auto; }
+  .post-ad-area .post-add-main form .form-group {
+    margin-bottom: 15px;
+    max-width: 80%;
+    width: 100%;
+    margin: 20px auto; }
+    .post-ad-area .post-add-main form .form-group .form-control {
+      height: 45px !important;
+      -webkit-box-shadow: none;
+      box-shadow: none; }
+    .post-ad-area .post-add-main form .form-group .item-photo {
+      margin-right: 15px;
+      width: 60px;
+      float: left;
+      height: 60px;
+      background: #fff;
+      text-align: center; }
+      .post-ad-area .post-add-main form .form-group .item-photo i.fa.fa-image {
+        font-size: 25px;
+        padding-top: 18px;
+        opacity: 0.4; }
+    .post-ad-area .post-add-main form .form-group button.btn.btn-primary {
+      padding: 10px 60px;
+      background: #52baf9;
+      border: none;
+      font-weight: 700; }
+  .post-ad-area .post-add-main form .textarea {
+    max-width: 80%;
+    width: 1000%;
+    margin: 0 auto; }

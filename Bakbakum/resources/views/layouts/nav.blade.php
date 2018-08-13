@@ -49,7 +49,7 @@
             <li class="login"><a  href="{{ route('logout') }}">Logout</a></li>
           @endguest
             <li class="nav-button">
-                <a href="">Post your ad</a>
+                <a href="/create/post">Post your ad</a>
             </li>
           </ul>
         </div><!-- /.navbar-collapse -->

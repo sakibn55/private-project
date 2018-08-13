@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Categories;
 use Illuminate\Http\Request;
+use Session;
 
-class productController extends Controller
+class CategoriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,7 @@ class productController extends Controller
      */
     public function index()
     {
-        return view('products.create');
+        
     }
 
     /**
@@ -21,11 +23,9 @@ class productController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create(){
+        return view('categories.create');
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -34,16 +34,23 @@ class productController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required'
+        ]);
+        $cat = new Categories;
+        $cat->name = $request->input('name');
+        $cat->save();
+        Session::flash('Success', 'Successfully Created Categories');
+        return view('categories.create');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Categories $categories)
     {
         //
     }
@@ -51,10 +58,10 @@ class productController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Categories $categories)
     {
         //
     }
@@ -63,10 +70,10 @@ class productController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Categories $categories)
     {
         //
     }
@@ -74,10 +81,10 @@ class productController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Categories $categories)
     {
         //
     }

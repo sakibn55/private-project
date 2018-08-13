@@ -19,3 +19,11 @@ Auth::routes();
 Route::get('logout', 'Auth\LoginController@logout');
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/create/post','productController@index');
+Route::get('/create/cat', 'CategoriesController@create');
+Route::get('/create/district', 'DistrictController@create');
+Route::get('/create/divisions', 'DivisionsController@create');
+Route::post('/cat/store', 'CategoriesController@store');
+Route::post('districtstore', 'DistrictController@store')->name('districtstore');
+Route::post('divisionsstore', 'DivisionsController@store')->name('divisionsstore');
+Route::get('divisions/show/{id}', 'DivisionsController@show')->name('divisions/show');
