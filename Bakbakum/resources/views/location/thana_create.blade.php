@@ -1,6 +1,16 @@
 @extends('layouts.app')
 @section('content')
-<form class="col-md-4 col-md-offset-4" method="POST" action="{{ route('divisionsstore') }}">
+
+<div class="container">
+	<div class="row">
+		<ul>
+			@foreach($thanas as $thana)
+				<li>{{ $thana->name }}</li>
+			@endforeach
+		</ul>
+	</div>
+</div>
+<form class="col-md-4 col-md-offset-4" method="POST" action="{{ route('thanastore') }}">
 {{ csrf_field() }}
 
 <div class="form-group">
@@ -23,5 +33,3 @@
 @endif
 </form>
 @endsection
-
- 

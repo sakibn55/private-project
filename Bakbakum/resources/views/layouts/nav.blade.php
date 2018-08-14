@@ -16,21 +16,19 @@
             <ul class="nav navbar-nav">
                 <li><a href="#">All ads</a></li>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cities <span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Divisions <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Dhaka</a></li>
-                    <li><a href="#">Chattagram</a></li>
-                    <li><a href="#">Sylhet</a></li>
-                    <li><a href="#">Khulna</a></li>
-                    <li><a href="#">Barishal</a></li>
+                    @foreach($divisions_item as $division_item)
+                    <li><a href="#">{{ $division_item->name }}</a></li>
+                    @endforeach
                   </ul>
                 </li>
                 <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Division <span class="caret"></span></a>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cities <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Dhaka</a></li>
-                    <li><a href="#">Chattagram</a></li>
-                    <li><a href="#">Sylhet</a></li>
+                    @foreach($districts_item as $district_item)
+                    <li><a href="#">{{ $district_item->name }}</a></li>
+                    @endforeach
                   </ul>
                 </li>
             </ul>
@@ -41,13 +39,16 @@
             <button type="submit" class="btn btn-default">Submit</button>
           </form> -->
           <ul class="nav navbar-nav navbar-right">
-          @guest
+          @if(Auth::check())
+            <li class="login"><a  href="{{ route('logout') }}">Logout</a></li>
+           
+          
+          @else
             <li class="login"><a href="{{ route('login') }}">Login</a></li>
             <li class="login"><a href="">|</a></li>
             <li class="regster"><a href="{{ route('register') }}">Register</a></li>
-          @else
-            <li class="login"><a  href="{{ route('logout') }}">Logout</a></li>
-          @endguest
+          
+          @endif
             <li class="nav-button">
                 <a href="/create/post">Post your ad</a>
             </li>

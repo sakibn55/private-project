@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\District;
+use App\Thana;
 use Illuminate\Http\Request;
 use Session;
 
@@ -45,16 +46,34 @@ class DistrictController extends Controller
         Session::flash('Success', 'Successfully Created District');
         return view('location.district_create');
     }
+    public function createDistrictThana(){
+        $thanas = Thana::all();
+        $districts = District::all();
+        return view('location.district_thana')->withThanas($thanas)->withDistricts($districts);
+    }
 
+    public function DistrictThanaStore(Request $request){
+        $this->validate($request, [
+            'name' => 'required'
+        ]);
+        $thanas = Thana::all();
+        $districts = new District;
+        $districts->id = $request->input('name');
+        $districts->thana()->sync($request->thana,false);
+        
+        Session::flash('Success', 'Successfully Created Divisions');
+        return redirect()->route('districts/show', $districts->id);
+    }
     /**
      * Display the specified resource.
      *
      * @param  \App\District  $district
      * @return \Illuminate\Http\Response
      */
-    public function show(District $district)
+    public function show($id)
     {
-        //
+        $district = District::find($id);
+        return view('location.district', compact('district'));
     }
 
     /**
