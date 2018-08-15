@@ -1,7 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Product;
+use App\District;
+use App\Divisions;
+use App\Thana;
 use Illuminate\Http\Request;
 
 class productController extends Controller
@@ -13,7 +16,7 @@ class productController extends Controller
      */
     public function index()
     {
-        return view('products.create');
+        
     }
 
     /**
@@ -23,7 +26,15 @@ class productController extends Controller
      */
     public function create()
     {
-        //
+        $divisions = Divisions::all();
+        return view('products.create', compact('divisions'));
+    }
+
+    function findDivisionName(Request $request){
+        $divisionId = $request->id;
+        $data = Divisions::find($divisionId)->district()->orderBy('name')->take(30)->get();
+
+        return response()->json($data);
     }
 
     /**
