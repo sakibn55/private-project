@@ -23,7 +23,7 @@ Route::get('/create/post','productController@create');
 Route::get('/create/cat', 'CategoriesController@create');
 Route::get('/create/district', 'DistrictController@create');
 Route::get('/create/divisions', 'DivisionsController@create');
-Route::post('/cat/store', 'CategoriesController@store');
+Route::post('catstore', 'CategoriesController@store')->name('catstore');
 Route::post('districtstore', 'DistrictController@store')->name('districtstore');
 Route::post('divisionsstore', 'DivisionsController@store')->name('divisionsstore');
 Route::get('divisions/show/{id}', 'DivisionsController@show')->name('divisions/show');
@@ -37,6 +37,10 @@ Route::post('district_thana_store','DistrictController@DistrictThanaStore')->nam
 Route::get('districts/show/{id}', 'DistrictController@show')->name('districts/show');
 
 Route::get('/findDivisionName','productController@findDivisionName');
+Route::get('/findDistrictName','productController@findDistrictName');
+
+Route::post('productStore','ProductsController@store')->name('productStore');
+Route::get('/productshow' ,'ProductsController@show');
 
 
 

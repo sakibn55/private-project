@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<form class="col-md-4 col-md-offset-4" method="POST" action="cat/store">
+<form class="col-md-4 col-md-offset-4" method="POST" action="{{ route('catstore') }}">
 {{ csrf_field() }}
 
 <div class="form-group">

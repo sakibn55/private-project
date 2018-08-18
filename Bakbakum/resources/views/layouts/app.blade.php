@@ -18,6 +18,10 @@
     @yield('head')
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
+<style type="text/css">
+    
+    @yield('style');
+</style>
 <body>
     <div id="app">
         <header class="headermain" id="header-main">

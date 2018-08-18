@@ -41,6 +41,20 @@
           <ul class="nav navbar-nav navbar-right">
           @if(Auth::check())
             <li class="login"><a  href="{{ route('logout') }}">Logout</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Create <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                
+                <li><a href="/create/divisions">Create Divisions</a></li>
+                <li><a href="/create/district">Create District</a></li>
+                <li><a href="/create/thana">Create Thana</a></li>
+                <li><a href="/create/cat">Create Categories</a></li>
+                <li><a href="/create/division/district">Create District under Divisions</a></li>
+                <li><a href="/create/district/thana">Create Thana under Districts</a></li>
+
+               
+              </ul>
+            </li>
            
           
           @else
